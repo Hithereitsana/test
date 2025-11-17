@@ -1,0 +1,76 @@
+services:
+  mongodb:
+    image: mongo:8
+    container_name: test-technique-mongodb
+    restart: unless-stopped
+    ports:
+      - "27018:27017"
+    environment:
+      MONGO_INITDB_DATABASE: products_db
+    volumes:
+      - mongodb_data:/data/db
+      - ./backend/scripts/init-indexes.js:/docker-entrypoint-initdb.d/init-indexes.js:ro
+    networks:
+      - app-network
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: test-technique-backend
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: development
+      MONGODB_URI: mongodb://mongodb:27017/products_db
+      PORT: 3000
+    depends_on:
+      - mongodb
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    networks:
+      - app-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: test-technique-frontend
+    restart: unless-stopped
+    ports:
+      - "5173:5173"
+    environment:
+      # URL pour le client (navigateur)
+      VITE_API_URL: http://localhost:3000
+      # URL pour le serveur (SSR) - utilise le nom de service Docker
+      API_URL: http://backend:3000
+      NODE_ENV: production
+    depends_on:
+      - backend
+    networks:
+      - app-network
+
+  seed:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: test-technique-seed
+    environment:
+      MONGODB_URI: mongodb://mongodb:27017/products_db
+    depends_on:
+      - mongodb
+    command: npm run seed
+    networks:
+      - app-network
+    profiles:
+      - seed
+
+volumes:
+  mongodb_data:
+
+networks:
+  app-network:
+    driver: bridge
+

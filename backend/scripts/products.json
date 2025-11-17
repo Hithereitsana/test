@@ -1,0 +1,444 @@
+[
+  {
+    "name": "Smartphone Pro Max",
+    "description": "Smartphone haut de gamme avec écran OLED 6.7 pouces, processeur puissant et appareil photo professionnel",
+    "category": "Électronique",
+    "brand": "TechCorp",
+    "price": 899.99,
+    "inStock": true,
+    "tags": ["nouveau", "premium"]
+  },
+  {
+    "name": "Ordinateur Portable Ultrabook",
+    "description": "Laptop léger et performant avec processeur dernière génération, 16GB RAM et SSD 512GB",
+    "category": "Électronique",
+    "brand": "TechCorp",
+    "price": 1299.99,
+    "inStock": true,
+    "tags": ["populaire", "standard"]
+  },
+  {
+    "name": "Écouteurs Sans Fil Pro",
+    "description": "Écouteurs Bluetooth avec réduction de bruit active et autonomie de 30 heures",
+    "category": "Électronique",
+    "brand": "TechCorp",
+    "price": 249.99,
+    "inStock": true,
+    "tags": ["promo", "premium"]
+  },
+  {
+    "name": "Montre Connectée Sport",
+    "description": "Montre intelligente avec GPS, suivi de la santé et résistance à l'eau",
+    "category": "Électronique",
+    "brand": "TechCorp",
+    "price": 199.99,
+    "inStock": true,
+    "tags": ["bestseller", "standard"]
+  },
+  {
+    "name": "Tablette Graphique",
+    "description": "Tablette pour créateurs avec stylet haute précision et écran haute résolution",
+    "category": "Électronique",
+    "brand": "TechCorp",
+    "price": 449.99,
+    "inStock": false,
+    "tags": ["exclusif", "premium"]
+  },
+  {
+    "name": "T-shirt Premium Coton Bio",
+    "description": "T-shirt en coton biologique, coupe moderne et confortable",
+    "category": "Vêtements",
+    "brand": "FashionBrand",
+    "price": 29.99,
+    "inStock": true,
+    "tags": ["nouveau", "basique"]
+  },
+  {
+    "name": "Jean Slim Classique",
+    "description": "Jean coupe slim en denim stretch, confortable et durable",
+    "category": "Vêtements",
+    "brand": "FashionBrand",
+    "price": 79.99,
+    "inStock": true,
+    "tags": ["populaire", "standard"]
+  },
+  {
+    "name": "Veste en Cuir Véritable",
+    "description": "Veste en cuir véritable, coupe motard intemporelle",
+    "category": "Vêtements",
+    "brand": "FashionBrand",
+    "price": 299.99,
+    "inStock": true,
+    "tags": ["exclusif", "deluxe"]
+  },
+  {
+    "name": "Chaussures Sport Running",
+    "description": "Chaussures de course avec amorti haute performance et semelle respirante",
+    "category": "Vêtements",
+    "brand": "FashionBrand",
+    "price": 119.99,
+    "inStock": true,
+    "tags": ["bestseller", "premium"]
+  },
+  {
+    "name": "Manteau d'Hiver Imperméable",
+    "description": "Manteau chaud et imperméable pour l'hiver, doublure polaire",
+    "category": "Vêtements",
+    "brand": "FashionBrand",
+    "price": 149.99,
+    "inStock": false,
+    "tags": ["populaire", "standard"]
+  },
+  {
+    "name": "Table Basse Moderne",
+    "description": "Table basse design en bois massif avec plateau en verre trempé",
+    "category": "Maison & Jardin",
+    "brand": "HomeStyle",
+    "price": 349.99,
+    "inStock": true,
+    "tags": ["nouveau", "premium"]
+  },
+  {
+    "name": "Lampe Design LED",
+    "description": "Lampe de bureau LED avec variateur d'intensité et port USB",
+    "category": "Maison & Jardin",
+    "brand": "HomeStyle",
+    "price": 89.99,
+    "inStock": true,
+    "tags": ["populaire", "standard"]
+  },
+  {
+    "name": "Canapé Confortable 3 Places",
+    "description": "Canapé en tissu résistant avec coussins déhoussables, assise profonde",
+    "category": "Maison & Jardin",
+    "brand": "HomeStyle",
+    "price": 799.99,
+    "inStock": true,
+    "tags": ["bestseller", "deluxe"]
+  },
+  {
+    "name": "Plante Décorative Monstera",
+    "description": "Plante verte d'intérieur, facile d'entretien, pot inclus",
+    "category": "Maison & Jardin",
+    "brand": "HomeStyle",
+    "price": 24.99,
+    "inStock": true,
+    "tags": ["nouveau", "basique"]
+  },
+  {
+    "name": "Machine à Café Expresso",
+    "description": "Machine à café automatique avec broyeur intégré et mousseur à lait",
+    "category": "Maison & Jardin",
+    "brand": "HomeStyle",
+    "price": 449.99,
+    "inStock": true,
+    "tags": ["exclusif", "premium"]
+  },
+  {
+    "name": "Raquette de Tennis Pro",
+    "description": "Raquette de tennis professionnelle en graphite, équilibrée pour le contrôle",
+    "category": "Sport & Loisirs",
+    "brand": "SportPro",
+    "price": 179.99,
+    "inStock": true,
+    "tags": ["populaire", "standard"]
+  },
+  {
+    "name": "Vélo de Route Carbone",
+    "description": "Vélo de route léger en carbone, transmission Shimano 105, 11 vitesses",
+    "category": "Sport & Loisirs",
+    "brand": "SportPro",
+    "price": 1499.99,
+    "inStock": true,
+    "tags": ["exclusif", "deluxe"]
+  },
+  {
+    "name": "Tapis de Yoga Premium",
+    "description": "Tapis de yoga antidérapant, épaisseur 6mm, matière écologique",
+    "category": "Sport & Loisirs",
+    "brand": "SportPro",
+    "price": 39.99,
+    "inStock": true,
+    "tags": ["bestseller", "basique"]
+  },
+  {
+    "name": "Haltères Ajustables",
+    "description": "Paire d'haltères ajustables de 2.5kg à 20kg, poignées ergonomiques",
+    "category": "Sport & Loisirs",
+    "brand": "SportPro",
+    "price": 129.99,
+    "inStock": true,
+    "tags": ["nouveau", "standard"]
+  },
+  {
+    "name": "Tente de Camping 4 Personnes",
+    "description": "Tente résistante aux intempéries, montage rapide, double paroi",
+    "category": "Sport & Loisirs",
+    "brand": "SportPro",
+    "price": 199.99,
+    "inStock": false,
+    "tags": ["populaire", "premium"]
+  },
+  {
+    "name": "Roman Best-Seller",
+    "description": "Roman à succès, édition poche, 450 pages",
+    "category": "Livres",
+    "brand": "BookWorld",
+    "price": 12.99,
+    "inStock": true,
+    "tags": ["bestseller", "basique"]
+  },
+  {
+    "name": "Guide de Voyage Paris",
+    "description": "Guide complet de Paris avec cartes détaillées et recommandations",
+    "category": "Livres",
+    "brand": "BookWorld",
+    "price": 18.99,
+    "inStock": true,
+    "tags": ["populaire", "standard"]
+  },
+  {
+    "name": "Livre pour Enfants Illustré",
+    "description": "Livre illustré pour enfants de 5-8 ans, histoire captivante",
+    "category": "Livres",
+    "brand": "BookWorld",
+    "price": 14.99,
+    "inStock": true,
+    "tags": ["nouveau", "basique"]
+  },
+  {
+    "name": "BD Populaire Tome 1",
+    "description": "Bande dessinée à succès, édition collector, 64 pages",
+    "category": "Livres",
+    "brand": "BookWorld",
+    "price": 16.99,
+    "inStock": true,
+    "tags": ["bestseller", "standard"]
+  },
+  {
+    "name": "Dictionnaire Larousse",
+    "description": "Dictionnaire de langue française, édition 2024, 2000 pages",
+    "category": "Livres",
+    "brand": "BookWorld",
+    "price": 34.99,
+    "inStock": false,
+    "tags": ["populaire", "premium"]
+  },
+  {
+    "name": "Puzzle 1000 Pièces",
+    "description": "Puzzle éducatif 1000 pièces, image de paysage, carton épais",
+    "category": "Jouets",
+    "brand": "ToyLand",
+    "price": 19.99,
+    "inStock": true,
+    "tags": ["nouveau", "basique"]
+  },
+  {
+    "name": "Lego Architecture",
+    "description": "Set Lego Architecture, monument célèbre, 1200 pièces",
+    "category": "Jouets",
+    "brand": "ToyLand",
+    "price": 89.99,
+    "inStock": true,
+    "tags": ["bestseller", "premium"]
+  },
+  {
+    "name": "Poupée Interactive",
+    "description": "Poupée interactive qui parle et chante, 10 phrases préenregistrées",
+    "category": "Jouets",
+    "brand": "ToyLand",
+    "price": 49.99,
+    "inStock": true,
+    "tags": ["populaire", "standard"]
+  },
+  {
+    "name": "Voiture Télécommandée",
+    "description": "Voiture télécommandée 1:10, 4 roues motrices, batterie rechargeable",
+    "category": "Jouets",
+    "brand": "ToyLand",
+    "price": 79.99,
+    "inStock": true,
+    "tags": ["nouveau", "standard"]
+  },
+  {
+    "name": "Jeu de Société Familial",
+    "description": "Jeu de société pour 2-6 joueurs, durée 60 minutes, à partir de 8 ans",
+    "category": "Jouets",
+    "brand": "ToyLand",
+    "price": 34.99,
+    "inStock": false,
+    "tags": ["bestseller", "basique"]
+  },
+  {
+    "name": "Crème Hydratante Visage",
+    "description": "Crème hydratante jour et nuit, SPF 30, peaux sensibles, 50ml",
+    "category": "Beauté & Santé",
+    "brand": "BeautyPlus",
+    "price": 24.99,
+    "inStock": true,
+    "tags": ["populaire", "standard"]
+  },
+  {
+    "name": "Parfum Élégant 100ml",
+    "description": "Parfum eau de toilette, notes florales et boisées, flacon 100ml",
+    "category": "Beauté & Santé",
+    "brand": "BeautyPlus",
+    "price": 69.99,
+    "inStock": true,
+    "tags": ["exclusif", "premium"]
+  },
+  {
+    "name": "Kit de Maquillage Complet",
+    "description": "Kit maquillage professionnel avec 24 fards à paupières et pinceaux",
+    "category": "Beauté & Santé",
+    "brand": "BeautyPlus",
+    "price": 49.99,
+    "inStock": true,
+    "tags": ["nouveau", "deluxe"]
+  },
+  {
+    "name": "Shampoing Bio Volume",
+    "description": "Shampoing bio pour cheveux fins, volume et brillance, 400ml",
+    "category": "Beauté & Santé",
+    "brand": "BeautyPlus",
+    "price": 14.99,
+    "inStock": true,
+    "tags": ["bestseller", "basique"]
+  },
+  {
+    "name": "Masque Visage Purifiant",
+    "description": "Masque visage à l'argile, purifiant et matifiant, 75ml",
+    "category": "Beauté & Santé",
+    "brand": "BeautyPlus",
+    "price": 19.99,
+    "inStock": false,
+    "tags": ["populaire", "standard"]
+  },
+  {
+    "name": "Pneus Hiver 205/55 R16",
+    "description": "Pneus hiver avec lamelles, adhérence optimale sur neige et glace",
+    "category": "Automobile",
+    "brand": "AutoMax",
+    "price": 89.99,
+    "inStock": true,
+    "tags": ["nouveau", "premium"]
+  },
+  {
+    "name": "Batterie Voiture 12V 70Ah",
+    "description": "Batterie voiture plomb-acide, démarrage puissant, garantie 2 ans",
+    "category": "Automobile",
+    "brand": "AutoMax",
+    "price": 119.99,
+    "inStock": true,
+    "tags": ["bestseller", "standard"]
+  },
+  {
+    "name": "GPS Automobile 7 Pouces",
+    "description": "GPS avec écran tactile 7 pouces, cartes Europe, mise à jour gratuite",
+    "category": "Automobile",
+    "brand": "AutoMax",
+    "price": 149.99,
+    "inStock": true,
+    "tags": ["populaire", "premium"]
+  },
+  {
+    "name": "Siège Auto Groupe 1-2-3",
+    "description": "Siège auto évolutif 9-36kg, isofix, sécurité renforcée",
+    "category": "Automobile",
+    "brand": "AutoMax",
+    "price": 199.99,
+    "inStock": true,
+    "tags": ["exclusif", "deluxe"]
+  },
+  {
+    "name": "Kit d'Éclairage LED",
+    "description": "Kit phares LED H7, blanc 6000K, installation facile",
+    "category": "Automobile",
+    "brand": "AutoMax",
+    "price": 39.99,
+    "inStock": false,
+    "tags": ["nouveau", "basique"]
+  },
+  {
+    "name": "Enceinte Bluetooth Portable",
+    "description": "Enceinte Bluetooth étanche IPX7, autonomie 20h, son stéréo",
+    "category": "Électronique",
+    "brand": "TechCorp",
+    "price": 79.99,
+    "inStock": true,
+    "tags": ["bestseller", "standard"]
+  },
+  {
+    "name": "Clavier Mécanique Gaming",
+    "description": "Clavier mécanique RGB, switches Cherry MX, rétroéclairage personnalisable",
+    "category": "Électronique",
+    "brand": "TechCorp",
+    "price": 129.99,
+    "inStock": true,
+    "tags": ["populaire", "premium"]
+  },
+  {
+    "name": "Souris Gaming Sans Fil",
+    "description": "Souris gaming sans fil, capteur haute précision, 6 boutons programmables",
+    "category": "Électronique",
+    "brand": "TechCorp",
+    "price": 69.99,
+    "inStock": true,
+    "tags": ["nouveau", "standard"]
+  },
+  {
+    "name": "Webcam HD 1080p",
+    "description": "Webcam Full HD 1080p, micro intégré, fixation universelle",
+    "category": "Électronique",
+    "brand": "TechCorp",
+    "price": 49.99,
+    "inStock": true,
+    "tags": ["bestseller", "basique"]
+  },
+  {
+    "name": "Disque Dur Externe 2TB",
+    "description": "Disque dur externe USB 3.0, 2TB, compact et portable",
+    "category": "Électronique",
+    "brand": "TechCorp",
+    "price": 89.99,
+    "inStock": false,
+    "tags": ["populaire", "standard"]
+  },
+  {
+    "name": "Robe d'Été Légère",
+    "description": "Robe d'été en coton, coupe fluide, imprimé floral",
+    "category": "Vêtements",
+    "brand": "FashionBrand",
+    "price": 39.99,
+    "inStock": true,
+    "tags": ["nouveau", "basique"]
+  },
+  {
+    "name": "Pull en Laine Mérinos",
+    "description": "Pull en laine mérinos, chaud et respirant, coupe classique",
+    "category": "Vêtements",
+    "brand": "FashionBrand",
+    "price": 59.99,
+    "inStock": true,
+    "tags": ["bestseller", "premium"]
+  },
+  {
+    "name": "Sac à Dos Voyage",
+    "description": "Sac à dos 40L, compartiments multiples, résistant à l'eau",
+    "category": "Vêtements",
+    "brand": "FashionBrand",
+    "price": 79.99,
+    "inStock": true,
+    "tags": ["populaire", "standard"]
+  },
+  {
+    "name": "Casquette Baseball",
+    "description": "Casquette ajustable, visière courbée, matière respirante",
+    "category": "Vêtements",
+    "brand": "FashionBrand",
+    "price": 19.99,
+    "inStock": true,
+    "tags": ["nouveau", "basique"]
+  }
+]
+
