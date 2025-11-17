@@ -1,15 +1,10 @@
 import type { PageContextServer } from "vike/types";
 import type { Product } from '../../../src/types/product';
 import { AppPageContext } from "../../../src/types/pageContext";
-
-
-export type Data = AppPageContext;
+export type Data = Pick<AppPageContext, 'product' | 'products'>;
 
 export default async function data(pageContext: PageContextServer): Promise<Data> {
-  const { urlOriginal } = pageContext;
   const { id } = pageContext.routeParams;
-  const url =new URL(urlOriginal, 'http://localhost');
-  const searchParams = url.searchParams;
   const params = new URLSearchParams();
   const API_URL = process.env.API_URL || 'http://localhost:3000';
   const fullUrl = `${API_URL}/api/products?${params.toString()}`;

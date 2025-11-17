@@ -26,32 +26,21 @@ async function seed(): Promise<void> {
 
   try {
     await client.connect();
-    console.log('Connected to MongoDB');
-    
     const db = client.db();
     const collection = db.collection<Product>('products');
-    
-    // Vider la collection
     await collection.deleteMany({});
     console.log('Cleared existing products');
-
-    // Charger les produits depuis le fichier JSON
     const productsJsonPath = join(__dirname, 'products.json');
     const productsData = JSON.parse(readFileSync(productsJsonPath, 'utf-8'));
-    
-    // Ajouter les dates aux produits
     const now = new Date();
     const products: Product[] = productsData.map((product: Omit<Product, 'createdAt' | 'updatedAt'>) => ({
       ...product,
       createdAt: new Date(now.getTime() - Math.random() * 365 * 24 * 60 * 60 * 1000), // Date aléatoire dans la dernière année
       updatedAt: now
     }));
-
-    // Utiliser bulkWrite pour une insertion plus efficace
     const bulkOps = products.map(product => ({
       insertOne: { document: product }
     }));
-    
     const result = await collection.bulkWrite(bulkOps, { ordered: false });
     console.log(`Inserted ${result.insertedCount} products`);
 
