@@ -14,7 +14,7 @@ Afficher une liste de produits avec filtres par facettes (faceted search).
 ## Prérequis
 
 - Docker & Docker Compose
-- Node.js 18+
+- Node.js 22
 
 ## Objectifs
 
@@ -55,6 +55,7 @@ export interface ProductsResponse {
 ## Démarrage
 
 ```bash
+docker-compose build
 docker-compose up -d
 ```
 
@@ -68,7 +69,7 @@ docker-compose up -d
 - Architecture et organisation du code
 - Qualité du code
 - Performance (pagination, indexation MongoDB)
-- Système de facettes (compteurs, mise à jour dynamique)
+- Système de facettes (compteurs, mise à jour réactive)
 - UX/UI
 
 ## Livrable
