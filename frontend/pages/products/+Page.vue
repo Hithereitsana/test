@@ -1,7 +1,14 @@
 <template>
   <div class="container mx-auto p-6">
     <div v-if="products">
-      <pre>{{ products }}</pre>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <a :href="`/products/${product._id}`" v-for="product in products" :key="product._id">
+          <div class="bg-white rounded-lg shadow-md p-4">
+            <h3 class="text-lg font-bold">{{ product.name }}</h3>
+            <p class="text-sm text-gray-600">{{ product.description }}</p>
+          </div>
+        </a>
+      </div>
     </div>
     <div v-else>
       <p>Chargement des produits...</p>
