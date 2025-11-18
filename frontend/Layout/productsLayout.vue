@@ -10,122 +10,150 @@
       <InputText id="username" v-model="search" aria-describedby="username-help" placeholder="Rechercher un produit" />
     </div>
     <div>
-      <Button @click="show = !show" severity="primary" :icon="show ? 'pi pi-filter-slash' : 'pi pi-filter'"
-        label="Filtrer"></Button>
+      <button @click="show = !show">
+        <i class="pi pi-filter"></i>
+      </button>
     </div>
   </header>
   <div>
     <slot />
   </div>
   <Drawer v-model:visible="show" position="right" header="Filtres">
-    <div classs="space-y-4">
+    <div class="space-y-4">
       <Message class="mb-4">@TODO : Afficher les facettes et filtrer les produits ici, voici quelques composants utiles pour vous
         faire gagner du temps avec primevue :</Message>
       <div class="space-y-4">
-        <h2>Price</h2>
+        <h2 class="font-semibold text-lg">Price</h2>
         <div class="px-4">
-          <Slider v-model="value" range class="w-full" :min="0" :max="200"/>
+          <Slider 
+            v-model="priceRange" 
+            range 
+            class="w-full" 
+            :min="facets.priceRange.min" 
+            :max="facets.priceRange.max" />
+          <div class="flex justify-between text-sm text-gray-600 mt-2">
+            <span>{{ priceRange[0] }}€</span>
+            <span>{{ priceRange[1] }}€</span>
+          </div>
         </div>
-        <h2>Availability</h2>
+        <h2 class="font-semibold text-lg">Availability</h2>
         <div class="flex items-center gap-2">
-          <ToggleSwitch></ToggleSwitch>
-          <label>In Stock</label>
+          <ToggleSwitch v-model="inStockOnly" />
+          <label>In Stock ({{ facets.availability.inStock }})</label>
         </div>
         <div class="flex items-center gap-2">
-          <ToggleSwitch></ToggleSwitch>
-          <label>Sold out</label>
+          <ToggleSwitch v-model="outOfStockOnly" />
+          <label>Sold out ({{ facets.availability.outOfStock }})</label>
         </div>
-        <h2>Categories</h2>
-        <Select v-model="filters.categories" 
+        <h2 class="font-semibold text-lg">Categories</h2>
+        <MultiSelect 
+          v-model="selectedCategories" 
           :options="categories" 
           optionLabel="name" 
           placeholder="Select categories filter"
-          multiple
-          class="w-full">
-          <template #value="slotProps">
-            <div v-if="slotProps.value" class="flex items-center">
-              <div>{{ slotProps.value.name }}</div>
-            </div>
-            <span v-else>
-              {{ slotProps.placeholder }}
-            </span>
-          </template>
+          class="w-full"
+          display="chip"
+          :showToggleAll="true"
+          :filter="true">
           <template #option="slotProps">
-            <div class="flex items-center">
-              <div>{{ slotProps.option.name }}</div>
+            <div class="flex items-center justify-between w-full">
+              <div class="flex items-center gap-2">
+                <span>{{ slotProps.option.name }}</span>
+              </div>
+              <span class="text-sm text-gray-500">({{ slotProps.option.count }})</span>
             </div>
           </template>
-          <template #dropdownicon>
-            <i class="pi pi-list" />
+        </MultiSelect>
+        <h2 class="font-semibold text-lg">Brands</h2>
+        <MultiSelect 
+          v-model="selectedBrands" 
+          :options="brands" 
+          optionLabel="name" 
+          placeholder="Select brands filter"
+          class="w-full"
+          display="chip"
+          :showToggleAll="true"
+          :filter="true">
+          <template #option="slotProps">
+            <div class="flex items-center justify-between w-full">
+              <div class="flex items-center gap-2">
+                <span>{{ slotProps.option.name }}</span>
+              </div>
+              <span class="text-sm text-gray-500">({{ slotProps.option.count }})</span>
+            </div>
           </template>
-        </Select>
-        <h2>Brands</h2>
-        <Select v-model="filters.tags" 
+        </MultiSelect>
+        <h2 class="font-semibold text-lg">Tags</h2>
+        <MultiSelect 
+          v-model="selectedTags" 
           :options="tags" 
           optionLabel="name" 
           placeholder="Select tags filter"
-          multiple
-          class="w-full">
-          <template #value="slotProps">
-            <div v-if="slotProps.value" class="flex items-center">
-              <div>{{ slotProps.value.name }}</div>
-            </div>
-            <span v-else>
-              {{ slotProps.placeholder }}
-            </span>
-          </template>
+          class="w-full"
+          display="chip"
+          :showToggleAll="true"
+          :filter="true">
           <template #option="slotProps">
-            <div class="flex items-center">
-              <div>{{ slotProps.option.name }}</div>
+            <div class="flex items-center justify-between w-full">
+              <div class="flex items-center gap-2">
+                <span>{{ slotProps.option.name }}</span>
+              </div>
+              <span class="text-sm text-gray-500">({{ slotProps.option.count }})</span>
             </div>
           </template>
-          <template #dropdownicon>
-            <i class="pi pi-bookmark" />
-          </template>
-        </Select>
-        <h2>Tags</h2>
-        <Select v-model="filters.tags" 
-          :options="tags" 
-          optionLabel="name" 
-          placeholder="Select tags filter"
-          multiple
-          class="w-full">
-          <template #value="slotProps">
-            <div v-if="slotProps.value" class="flex items-center">
-              <div>{{ slotProps.value.name }}</div>
-            </div>
-            <span v-else>
-              {{ slotProps.placeholder }}
-            </span>
-          </template>
-          <template #option="slotProps">
-            <div class="flex items-center">
-              <div>{{ slotProps.option.name }}</div>
-            </div>
-          </template>
-          <template #dropdownicon>
-            <i class="pi pi-tags" />
-          </template>
-        </Select>
+        </MultiSelect>
       </div>
     </div>
   </Drawer>
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from "vue";
+import { ref, watch, computed } from "vue";
 import { useProductsStore } from "../datastore/products.store";
-import { Drawer, Button, InputText, Message, Select, ToggleSwitch, Slider } from "primevue";
+import { Drawer, Button, InputText, Message, MultiSelect, Checkbox, ToggleSwitch, Slider } from "primevue";
 import { usePageContext } from "vike-vue/usePageContext";
 import { storeToRefs } from "pinia";
+
 const pageContext = usePageContext();
 const productsStore = useProductsStore();
 const show = ref(false);
 const search = ref('');
-const {filters} = storeToRefs(productsStore);
+const { filters, facets } = storeToRefs(productsStore);
 
-// exemple search (à supprimer) livesync filters de préférence
+// Convertir les facets en format pour les selects
+const categories = computed(() => 
+  Object.entries(facets.value.categories).map(([name, count]) => ({ name, count }))
+);
+const brands = computed(() => 
+  Object.entries(facets.value.brands).map(([name, count]) => ({ name, count }))
+);
+const tags = computed(() => 
+  facets.value.tags ? Object.entries(facets.value.tags).map(([name, count]) => ({ name, count })) : []
+);
+
+// Bindings pour les filtres - initialisés depuis les facets
+const priceRange = ref([facets.value.priceRange.min, facets.value.priceRange.max]);
+const inStockOnly = ref(false);
+const outOfStockOnly = ref(false);
+const selectedCategories = ref([]);
+const selectedBrands = ref([]);
+const selectedTags = ref([]);
+
+// Synchroniser les filtres avec le store
 watch(search, (newVal) => {
   productsStore.search(newVal);
 });
+
+// Helpers pour vérifier si une option est sélectionnée (pour les checkboxes)
+const isCategorySelected = (option: any) => {
+  return selectedCategories.value.some((c: any) => c.name === option.name);
+};
+
+const isBrandSelected = (option: any) => {
+  return selectedBrands.value.some((b: any) => b.name === option.name);
+};
+
+const isTagSelected = (option: any) => {
+  return selectedTags.value.some((t: any) => t.name === option.name);
+};
 </script>

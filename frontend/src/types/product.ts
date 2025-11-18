@@ -14,6 +14,7 @@ export interface Product {
 export interface Facets {
   categories: Record<string, number>;
   brands: Record<string, number>;
+  tags?: Record<string, number>;
   priceRange: {
     min: number;
     max: number;

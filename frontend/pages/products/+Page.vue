@@ -4,8 +4,10 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         <a :href="`/products/${product._id}`" v-for="product in products" :key="product._id">
           <div class="bg-white rounded-lg shadow-md p-4">
+            <div>{{ product.brand }}</div>
             <h3 class="text-lg font-bold">{{ product.name }}</h3>
-            <p class="text-sm text-gray-600">{{ product.description }}</p>
+            <p class="text-sm text-gray-600">{{ product.description }}<br/>{{ product.inStock ? 'En stock' : 'Rupture de stock' }}</p>
+            <div class="text-xl text-right w-full">{{ product.price }}€</div>
           </div>
         </a>
       </div>

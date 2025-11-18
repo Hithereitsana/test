@@ -13,14 +13,14 @@ export function hydrateStores(dataSource: Partial<AppPageContext> | undefined) {
     indexesStore.hydrate(undefined);
   }
   if (dataSource.products !== undefined) {
-    productsStore.setProducts(dataSource.products);
+    productsStore.hydrate(dataSource.products);
   } else {
-    productsStore.setProducts([]);
+    productsStore.hydrate([]);
   }
   if (dataSource.product !== undefined) {
-    productStore.setProduct(dataSource.product);
+    productStore.hydrate(dataSource.product);
   } else {
-    productStore.setProduct(undefined);
+    productStore.hydrate(undefined);
   }
 }
 
