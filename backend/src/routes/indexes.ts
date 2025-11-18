@@ -19,7 +19,10 @@ export async function indexRoutes(fastify: FastifyInstance): Promise<void> {
       if (textIndex && textIndex.name) {
         await productsCollection.dropIndex(textIndex.name);
       }
-      /* @todo : créer les indexes nécéssaires pour la recherche et les filtres + sort */
+      /* 
+      @warn : vous préférerez le seed mais pouvez utiliser cette route `docker-compose run --rm seed npm run seed`
+      @todo : créer les indexes nécéssaires pour la recherche et les filtres 
+      */
       return { message: 'Index created successfully' };
     } catch (error) {
       const errorMessage = error instanceof Error ? error.message : 'Unknown error';

@@ -105,8 +105,10 @@ export async function productRoutes(fastify: FastifyInstance): Promise<void> {
     Reply: Product[] | { error: string };
   }>('/products', async (request: FastifyRequest<{ Querystring: { search?: string } }>, reply: FastifyReply) => {
     try {
-      // @todo : aggreger les données
-      const products = await productsCollection.find().toArray();
+      /* 
+      @todo : aggreger les données
+      */
+      const products = await productsCollection.find().skip(0).limit(10).toArray();
       return products;
     } catch (error) {
       const errorMessage = error instanceof Error ? error.message : 'Unknown error';
