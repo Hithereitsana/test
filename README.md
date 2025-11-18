@@ -11,7 +11,7 @@ Afficher une liste de produits avec filtres par facettes (faceted search).
 - **State Management** : Pinia
 - **Backend** : Fastify + TypeScript
 - **Base de données** : MongoDB 8
-- **Infrastructure** : Docker Compose
+- **Infrastructure Locale** : Docker Compose
 
 ## Prérequis
 

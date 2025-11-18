@@ -1,5 +1,94 @@
 # Instructions de démarrage
 
+## Installation de Docker et Docker Compose
+
+### macOS
+
+**Option 1 : Docker Desktop (recommandé)**
+
+1. Téléchargez Docker Desktop depuis : https://www.docker.com/products/docker-desktop/
+2. Installez l'application en glissant-déposant dans le dossier Applications
+3. Lancez Docker Desktop depuis Applications
+
+**Option 2 : Homebrew**
+
+```bash
+# Installer Docker Desktop via Homebrew
+brew install --cask docker
+
+# Lancer Docker Desktop
+open /Applications/Docker.app
+```
+
+Docker Compose est inclus avec Docker Desktop sur macOS.
+
+### Linux
+
+**Ubuntu/Debian**
+
+```bash
+# Mettre à jour les paquets
+sudo apt-get update
+
+# Installer les dépendances
+sudo apt-get install -y ca-certificates curl gnupg lsb-release
+
+# Ajouter la clé GPG officielle de Docker
+sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+
+# Configurer le dépôt
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+# Installer Docker Engine et Docker Compose
+sudo apt-get update
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
+
+# Démarrer Docker
+sudo systemctl start docker
+sudo systemctl enable docker
+
+# Ajouter votre utilisateur au groupe docker (pour éviter d'utiliser sudo)
+sudo usermod -aG docker $USER
+
+# Redémarrer la session ou exécuter :
+newgrp docker
+```
+
+**Autres distributions Linux**
+
+Consultez la documentation officielle : https://docs.docker.com/engine/install/
+
+### Windows
+
+**Docker Desktop (recommandé)**
+
+1. Téléchargez Docker Desktop depuis : https://www.docker.com/products/docker-desktop/
+2. Exécutez l'installateur et suivez les instructions
+3. Redémarrez votre ordinateur si demandé
+4. Lancez Docker Desktop depuis le menu Démarrer
+
+**Prérequis Windows :**
+- Windows 10 64-bit : Pro, Enterprise, ou Education (Build 19041 ou supérieur)
+- Windows 11 64-bit : Home ou Pro version 21H2 ou supérieure
+- WSL 2 activé (Docker Desktop l'installera automatiquement si nécessaire)
+
+Docker Compose est inclus avec Docker Desktop sur Windows.
+
+### Vérification de l'installation
+
+```bash
+# Vérifier que Docker est installé
+docker --version
+
+# Vérifier que Docker Compose est installé
+docker compose version
+# ou (ancienne version)
+docker-compose --version
+```
+
 ## Prérequis
 
 1. **Démarrer Docker Desktop** (ou le daemon Docker)
