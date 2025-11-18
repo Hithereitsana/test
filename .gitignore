@@ -12,4 +12,6 @@ coverage/
 *.swo
 *~
 
+# Fichier de données généré (optionnel - décommentez si vous générez un gros fichier)
+# backend/scripts/products.json
 

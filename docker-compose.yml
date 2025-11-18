@@ -1,18 +1,4 @@
 services:
-  mongodb:
-    image: mongo:8
-    container_name: test-technique-mongodb
-    restart: unless-stopped
-    ports:
-      - "27018:27017"
-    environment:
-      MONGO_INITDB_DATABASE: products_db
-    volumes:
-      - mongodb_data:/data/db
-      - ./backend/scripts/init-indexes.js:/docker-entrypoint-initdb.d/init-indexes.js:ro
-    networks:
-      - app-network
-
   backend:
     build:
       context: ./backend
@@ -26,7 +12,10 @@ services:
       MONGODB_URI: mongodb://mongodb:27017/products_db
       PORT: 3000
     depends_on:
-      - mongodb
+      mongodb:
+        condition: service_healthy
+      seed:
+        condition: service_completed_successfully
     volumes:
       - ./backend:/app
       - /app/node_modules
@@ -60,12 +49,32 @@ services:
     environment:
       MONGODB_URI: mongodb://mongodb:27017/products_db
     depends_on:
-      - mongodb
+      mongodb:
+        condition: service_healthy
     command: npm run seed
     networks:
       - app-network
-    profiles:
-      - seed
+    restart: "no"
+
+  mongodb:
+    image: mongo:8
+    container_name: test-technique-mongodb
+    restart: unless-stopped
+    ports:
+      - "27018:27017"
+    environment:
+      MONGO_INITDB_DATABASE: products_db
+    volumes:
+      - mongodb_data:/data/db
+      - ./backend/scripts/init-indexes.js:/docker-entrypoint-initdb.d/init-indexes.js:ro
+    networks:
+      - app-network
+    healthcheck:
+      test: mongosh --eval "db.adminCommand('ping')" --quiet
+      interval: 5s
+      timeout: 3s
+      retries: 5
+      start_period: 10s
 
 volumes:
   mongodb_data:
