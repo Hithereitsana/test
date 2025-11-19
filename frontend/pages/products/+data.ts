@@ -19,8 +19,11 @@ export default async function data(pageContext: PageContextServer): Promise<Data
     if (!response.ok) {
       throw new Error(`Failed to fetch products: ${response.status} ${response.statusText}`);
     }
-    const data: Product[] = await response.json();
-    return { products: data };
+
+    //ANAIS: on récupère les données sous forme de ProductsResponse
+    const json = (await response.json()) as ProductsResponse;
+    const products: Product[] = json.products;
+    return { products };
   } catch (error) {
     throw error;
   }
