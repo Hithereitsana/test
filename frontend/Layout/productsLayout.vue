@@ -7,7 +7,12 @@
       <i class="pi pi-home"></i>
     </a>
     <div class="flex-1 justify-center items-center text-center">
-      <InputText id="username" v-model="search" aria-describedby="username-help" placeholder="Rechercher un produit" />
+      <InputText
+        id="username"
+        v-model="search"
+        aria-describedby="username-help"
+        placeholder="Rechercher un produit"
+      />
     </div>
     <div>
       <button @click="show = !show">
@@ -108,7 +113,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch, computed } from "vue";
+import { ref, computed, watch } from "vue";
 import { useProductsStore } from "../datastore/products.store";
 import { Drawer, Button, InputText, Message, MultiSelect, Checkbox, ToggleSwitch, Slider } from "primevue";
 import { usePageContext } from "vike-vue/usePageContext";
@@ -117,8 +122,8 @@ import { storeToRefs } from "pinia";
 const pageContext = usePageContext();
 const productsStore = useProductsStore();
 const show = ref(false);
-const search = ref('');
 const { filters, facets } = storeToRefs(productsStore);
+const search = ref(filters.value.search || '');
 
 // Convertir les facets en format pour les selects
 const categories = computed(() => 
@@ -139,7 +144,7 @@ const selectedCategories = ref([]);
 const selectedBrands = ref([]);
 const selectedTags = ref([]);
 
-// Synchroniser les filtres avec le store
+// ANAIS: filtrage en temps réel + reset automatique quand on efface
 watch(search, (newVal) => {
   productsStore.search(newVal);
 });
